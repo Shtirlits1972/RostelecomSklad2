@@ -1,0 +1,37 @@
+﻿<Window x:Class="RostelecomSklad2.Forms.SupplayEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RostelecomSklad2.Forms"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="Поставщик" Height="160" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Название" VerticalAlignment="Center" Grid.Row="0" Margin="5" Grid.Column="0"/>
+        <TextBox x:Name="txtCompanyName"  VerticalContentAlignment="Bottom"  VerticalAlignment="Center" Height="25" Grid.Row="0" Grid.Column="1"/>
+
+        <TextBlock Text="Контактная информация" VerticalAlignment="Center" Grid.Row="1" Margin="5" Grid.Column="0"/>
+        <TextBox x:Name="txtContactDetails"  VerticalContentAlignment="Bottom"  VerticalAlignment="Center" Height="25" Grid.Row="1" Grid.Column="1"/>
+
+        <TextBlock Text="Местонахождение" VerticalAlignment="Center" Grid.Row="2" Margin="5" Grid.Column="0"/>
+        <TextBox x:Name="txtLocation"  VerticalContentAlignment="Bottom"  VerticalAlignment="Center" Height="25" Grid.Row="2" Grid.Column="1"/>
+
+        <Button x:Name="btnCancel" Content="Отменить" Width="140" Height="25" Grid.Row="4" Grid.Column="0" Click="btnCancel_Click"/>
+        <Button x:Name="btnOk" Content="Сохранить" Width="140" Height="25" Grid.Row="4" Grid.Column="1" Click="btnOk_Click"/>
+
+    </Grid>
+</Window>

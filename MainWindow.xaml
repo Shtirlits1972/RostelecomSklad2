@@ -1,0 +1,46 @@
+﻿<Window x:Class="RostelecomSklad2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RostelecomSklad2"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
+        Title="Ростелеком" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="400*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Height="35" VerticalAlignment="Top" Grid.Row="0"  x:Name="MainMeun" Margin="0,0,0,0">
+            <Menu IsMainMenu="True" VerticalAlignment="Top" VerticalContentAlignment="Top"   DockPanel.Dock="Top" Height="30" Margin="0,0,0,0">
+                <MenuItem Header="Справочники" x:Name="MenuReferences" Padding="10,0,10,15"  >
+                    <MenuItem Header="Товары" x:Name="ProductPageBtn"   Click="ProductPageBtn_Click"   />
+                    <MenuItem Header="Пользователи" x:Name="UsersPageBtn"   Click="UsersPageBtn_Click"   />
+                    <MenuItem Header="Поставщики" x:Name="SupplayPageBtn"   Click="SupplayPageBtn_Click"   />
+
+                    <MenuItem Header="Отделы" x:Name="DepartmentsPageBtn"   Click="DepartmentsPageBtn_Click"   />
+                    <MenuItem Header="Сотрудники" x:Name="EmployeePageBtn"   Click="EmployeePageBtn_Click"/>
+                    <MenuItem Header="Склады" x:Name="WarehousePageBtn"   Click="WarehousePageBtn_Click"/>
+                    <MenuItem Header="LoginLog" x:Name="LoginLogPageBtn"   Click="LoginLogPageBtn_Click"/>
+                    
+                    <!--</MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Статус заявки" x:Name="StatusRequestPageBtn"   Click="StatusRequestPageBtn_Click"></MenuItem>
+                    <MenuItem Header="Поставщики" x:Name="SuppliersPageBtn"   Click="SuppliersPageBtn_Click"></MenuItem>
+                    </MenuItem>-->
+                </MenuItem>
+                <MenuItem Header="Отчёты" x:Name="ReportsPageBtn"   Click="ReportsPageBtn_Click" VerticalAlignment="Top" VerticalContentAlignment="Top"   DockPanel.Dock="Top" Height="30" Padding="10,0,10,15" />
+                <MenuItem Header="Доставки" x:Name="DeliveriesPageBtn"   Click="DeliveriesPageBtn_Click"  VerticalAlignment="Top" VerticalContentAlignment="Top"   DockPanel.Dock="Top" Height="30" Padding="10,0,10,15" />
+                <MenuItem Header="Заказы" x:Name="OrdersPageBtn"   Click="OrdersPageBtn_Click"  VerticalAlignment="Top" VerticalContentAlignment="Top"   DockPanel.Dock="Top" Height="30" Padding="10,0,10,15" />
+                
+            </Menu>
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" >
+            <Frame NavigationUIVisibility="Automatic" Name="frmContent" Source="Forms/ScreenPage.xaml" />
+        </DockPanel>
+    </Grid>
+</Window>
