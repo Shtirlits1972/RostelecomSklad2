@@ -14,6 +14,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
 
         </Grid.RowDefinitions>
 
@@ -36,6 +38,7 @@
                                      ShowGroupPanel="False"
                                      CanUserInsertRows="False"
                                      ShowSearchPanel="False" 
+                                     SelectionChanged="mainGrid_SelectionChanged"
                                      RowEditEnded="mainGrid_RowEditEnded"
                                      AlternateRowBackground="Aquamarine" AlternationCount="2"  SelectionMode="Single"
                                      AutoGenerateColumns="False">
@@ -83,5 +86,56 @@
                 </telerik:RadGridView.Columns>
             </telerik:RadGridView >
         </DockPanel>
+
+        <DockPanel Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button Name="btnAddDetail" Content="Добавить" Width="100" Margin="15,0,0,0" Click="btnAddDetail_Click" ></Button>
+            <Button Name="btnEditDetail" Content="Редактировать" Width="100" Margin="15,0,0,0" Click="btnEditDetail_Click" ></Button>
+            <Button Name="btnDelDetail" Content="Удалить" Width="100" Margin="15,0,0,0" Click="btnDelDetail_Click" ></Button>
+        </DockPanel>
+
+        <DockPanel Grid.Row="3" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" >
+
+            <telerik:RadGridView x:Name ="detailGrid"                
+                             Grid.Row="1"
+                             NewRowPosition="None" 
+                                     Margin="5,5,5,5"
+                                     GroupRenderMode="Flat" 
+                                     ShowGroupPanel="False"
+                                     CanUserInsertRows="False"
+                                     ShowSearchPanel="False" 
+                                     RowEditEnded="detailGrid_RowEditEnded"
+                                     AlternateRowBackground="Aquamarine" AlternationCount="2"  SelectionMode="Single"
+                                     AutoGenerateColumns="False">
+                <telerik:RadGridView.Columns>
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Id}"  
+                                    IsVisible="True"
+                                    HeaderTextAlignment="Center"
+                                    IsReadOnly="True"
+                                    Width="50"
+                                    OptimizeDistinctFilterQuery="False"
+                                    TextAlignment="Center"
+                                    Header="ИД"/>
+
+                    <telerik:GridViewComboBoxColumn  DataMemberBinding="{Binding ProductId}"
+                                    Width="400*"
+                                    SelectedValueMemberPath="Id" 
+									DisplayMemberPath="ProductName"         
+                                    ShowDistinctFilters="True"
+                                    ShowFilterButton="True"
+                                    ShowFieldFilters="False"
+                                    Header="Товар"
+                                    x:Name="colProduct"
+                                    HeaderTextAlignment="Center"/>
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Qty}"
+                                    Header="Количество"
+                                    Width="200*"
+                                    HeaderTextAlignment="Center"/>
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView >
+        </DockPanel>
+
     </Grid>
 </Page>

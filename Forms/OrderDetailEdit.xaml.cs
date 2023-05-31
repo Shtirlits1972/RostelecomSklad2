@@ -57,7 +57,15 @@ namespace RostelecomSklad2.Forms
         {
             if (IsEdit)
             {
-                comboProduct.SelectedItem = new Product { Id = model.ProductId, ProductName = model.ProductName };
+                for(int i=0;i< comboProduct.Items.Count;i++)
+                {
+                    Product product = (Product)comboProduct.Items[i];
+                    if (product.Id == model.ProductId)
+                    {
+                        comboProduct.SelectedIndex = i;
+                        break;
+                    }
+                }
                 txtQty.Text = model.Qty.ToString();
             }
         }

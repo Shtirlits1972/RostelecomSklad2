@@ -39,6 +39,8 @@ namespace RostelecomSklad2.CRUD
         {
             using (IDbConnection db = new SqlConnection(strConn))
             {
+                OrderDetailCrud.DeleteAll(Id);
+
                 db.Execute("DELETE FROM Orders WHERE Id = @Id;", new { Id });
             }
         }

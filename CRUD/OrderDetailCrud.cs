@@ -33,6 +33,15 @@ namespace RostelecomSklad2.CRUD
             }
             return model;
         }
+
+        public static void DeleteAll(int OrderId)
+        {
+            using (IDbConnection db = new SqlConnection(strConn))
+            {
+                db.Execute("DELETE FROM OrderDetail WHERE OrderId = @OrderId;", new { OrderId });
+            }
+        }
+
         public static void Del(int Id)
         {
             using (IDbConnection db = new SqlConnection(strConn))
